@@ -6,17 +6,24 @@ Creare una funzione per capire se la parola inserita è palindroma
 
 */
 
-const parolaInserita = prompt('Inserisci una parola');
+// Chiedo parola all'utente
+const givenWord = prompt("Inserisci una parola");
+let result = false;
 
-const parolaPalindroma = checkPalindroma(parolaInserita);
+console.log("La parola inserita è: ", givenWord);
 
-// Verifico se la parola è palindroma
+let givenWordReversed = wordReverser(givenWord);
 
-function checkPalindroma(text) {
-    console.log(text);
-
-    console.log(text[0]);
-    console.log(text.charAt(0));
-
-    let 
+if (givenWordReversed === givenWord) {
+    result = true;
 }
+
+console.log("Palindroma: ", result);
+
+// Funzione per check palindroma
+// Descrizione: la funzione inverte l'ordine delle lettere della parola inserita, cosi da poter controllare se la parola resta la stessa, ergo se è palindroma
+function wordReverser(word){
+    return word.split("").reverse().join("");
+}
+
+
