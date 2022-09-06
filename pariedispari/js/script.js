@@ -9,3 +9,30 @@ Dichiariamo chi ha vinto.
 
 */
 
+function pariEDispari() {
+
+    let userNumber = parseInt(document.getElementById("box-numero").value);
+
+    let randomNumber = parseInt(Math.floor(Math.random() * 5) + 1);
+    console.log(randomNumber);
+
+    let sum = userNumber + randomNumber;
+    console.log(sum);
+
+    // Se risulta pari:
+
+    if (sum % 2 == 0) {
+        
+        alert("Il numero è pari!");
+
+    }
+
+    // Se risulta dispari:
+
+    else {
+
+        alert("Il numero è dispari!")
+
+    }
+
+}
