@@ -9,30 +9,57 @@ Dichiariamo chi ha vinto.
 
 */
 
-function pariEDispari() {
+// Chiedo all'utente di scegliere pari o dispari
+let userEvenOdd;
+do {
+    userEvenOdd = (prompt("Scegli pari o dispari")).toLowerCase();
+} while (userEvenOdd !== "pari" && userEvenOdd !== "dispari");
 
-    let userNumber = parseInt(document.getElementById("box-numero").value);
+console.log("Il giocatore ha scelto:", userEvenOdd);
 
-    let randomNumber = parseInt(Math.floor(Math.random() * 5) + 1);
-    console.log(randomNumber);
+// Chideo di inserire un numero compreso tra 1 e 5
+let userNumber;
+do {
+    userNumber = parseInt(prompt("Scegli un numero da 1 a 5"));
+} while (userNumber < 1 || userNumber > 5);
 
-    let sum = userNumber + randomNumber;
-    console.log(sum);
+console.log("Numero utente:", userNumber);
 
-    // Se risulta pari:
+// Genero casualmente un numero compreso da 1 a 5 per la macchina usando una funzione
+const pcNum = rndNumberGenerator()
+console.log("Numero Pc:", pcNum);
 
-    if (sum % 2 == 0) {
-        
-        alert("Il numero è pari!");
+// Sommo i numeri 
+let sum = userNumber + pcNum;
+console.log("Somma:", sum);
 
+// Per vedere se % 2 = 1 o 0 uso una funzione
+let judgement = evenOddJudge(sum);
+
+// Dichiaro il vincitore
+if (userEvenOdd === judgement) {
+    console.log("Il vincitore è l'utente!");
+} else {
+    console.log("Il vincitore è il computer!");
+}
+
+// FUNCTIONS
+
+function rndNumberGenerator(rndNum) {
+    rndNum = Math.floor(Math.random() * 5) + 1;
+    return rndNum;
+}
+
+function evenOddJudge(evenOddSum) {
+    let result = "";
+
+    if (evenOddSum % 2 === 0) {
+        result = "pari";
+        console.log("il numero è pari");
+    } else {
+        result = "dispari";
+        console.log("il numero è dispari");
     }
 
-    // Se risulta dispari:
-
-    else {
-
-        alert("Il numero è dispari!")
-
-    }
-
+    return result;
 }
